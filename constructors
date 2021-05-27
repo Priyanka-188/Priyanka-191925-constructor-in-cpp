@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std;
+
+class Complex
+{
+    int a, b;
+public:
+    //Operator overloading
+    Complex()  //default constructor
+    {
+        a=0;
+        b=0;
+    }
+    Complex(int x, int y) //Parametrized constructor
+    {
+        a=x;
+        b=y;
+    }
+    Complex(int x) //Parametrized constructor
+    {
+        a=x;
+        b=0;
+    }
+    Complex(Complex &obj) // copy constructor
+    {
+        cout<<"Copy Constructor called !!"<<endl;
+        a=obj.a;
+        b=0;
+    }
+    void printnumber()
+    {
+        cout<<" Your number is "<<a<<" + "<<b<<"i" <<endl;
+    }
+};
+int main()
+{
+    Complex c1(4,6);
+    c1.printnumber();
+
+    Complex c2(5);
+    c2.printnumber();
+
+    Complex c3;
+    c3.printnumber();
+
+    Complex c4= c3;   //copy constructor invoked
+    c4.printnumber();
+
+    Complex c5(c2);   //copy constructor invoked
+    c5.printnumber();
+
+    return 0;
+}
